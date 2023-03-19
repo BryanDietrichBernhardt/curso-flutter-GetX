@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class Controller extends GetxController {
+  static Controller get to => Get.find();
+
   String title = 'GetX App';
   int value = 0;
 
@@ -21,13 +23,13 @@ class HomePage extends StatelessWidget {
       builder: (_) {
         return Scaffold(
           appBar: AppBar(
-            title: Text(_.title),
+            title: Text(Get.find<Controller>().title),
           ),
           body: Center(
             child: GestureDetector(
-              onTap: () => _.incrementValue(),
+              onTap: () => Get.find<Controller>().incrementValue(),
               child: Text(
-                _.value.toString(),
+                Get.find<Controller>().value.toString(),
                 style: const TextStyle(
                   fontSize: 30,
                 ),
