@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:getx_app/app/about/about_page.dart';
 import 'package:getx_app/app/home/home_page.dart';
 
 class MainApp extends StatelessWidget {
@@ -10,10 +11,17 @@ class MainApp extends StatelessWidget {
     // change MaterialApp to GetMaterialApp
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: '/',
-      routes: {
-        '/': (context) => HomePage(),
-      },
+      getPages: [
+        GetPage(
+          name: '/home',
+          page: () => const HomePage(),
+        ),
+        GetPage(
+          name: '/about',
+          page: () => const AboutPage(),
+        ),
+      ],
+      initialRoute: '/home',
     );
   }
 }
