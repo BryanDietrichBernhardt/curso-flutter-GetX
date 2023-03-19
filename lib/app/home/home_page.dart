@@ -2,27 +2,27 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:getx_app/app/about/about_page.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+// class HomePage extends StatelessWidget {
+//   const HomePage({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text("Home Page"),
-      ),
-      body: Center(
-        child: ElevatedButton(
-          child: const Text("About"),
-          onPressed: () => Get.toNamed(
-            '/about',
-            arguments: ['Argumento 1 por rota', 'Argumento 2 por rota'],
-          ),
-        ),
-      ),
-    );
-  }
-}
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(
+//         title: const Text("Home Page"),
+//       ),
+//       body: Center(
+//         child: ElevatedButton(
+//           child: const Text("About"),
+//           onPressed: () => Get.toNamed(
+//             '/about',
+//             arguments: ['Argumento 1 por rota', 'Argumento 2 por rota'],
+//           ),
+//         ),
+//       ),
+//     );
+//   }
+// }
 
 // class Controller extends GetxController {
 //   static Controller get to => Get.find();
@@ -36,33 +36,30 @@ class HomePage extends StatelessWidget {
 //   }
 // }
 
-// class HomePage extends StatelessWidget {
-//   final controller = Get.put(Controller());
+class HomePage extends StatelessWidget {
+  RxInt number = 0.obs;
 
-//   HomePage({super.key});
+  HomePage({super.key});
 
-//   @override
-//   Widget build(BuildContext context) {
-//     return GetBuilder<Controller>(
-//       init: Controller(),
-//       builder: (_) {
-//         return Scaffold(
-//           appBar: AppBar(
-//             title: Text(controller.title),
-//           ),
-//           body: Center(
-//             child: GestureDetector(
-//               onTap: () => controller.incrementValue(),
-//               child: Text(
-//                 controller.value.toString(),
-//                 style: const TextStyle(
-//                   fontSize: 30,
-//                 ),
-//               ),
-//             ),
-//           ),
-//         );
-//       },
-//     );
-//   }
-// }
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("GetX App"),
+      ),
+      body: Center(
+        child: GestureDetector(
+          onTap: () => number++,
+          child: Obx(
+            () => Text(
+              number.toString(),
+              style: const TextStyle(
+                fontSize: 30,
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}

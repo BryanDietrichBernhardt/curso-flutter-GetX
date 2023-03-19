@@ -14,7 +14,7 @@ class MainApp extends StatelessWidget {
       getPages: [
         GetPage(
           name: '/home',
-          page: () => const HomePage(),
+          page: () => HomePage(),
         ),
         GetPage(
           name: '/about',
