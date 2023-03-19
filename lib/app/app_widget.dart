@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:getx_app/app/home/home_page.dart';
 
 class MainApp extends StatelessWidget {
@@ -6,7 +7,8 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    // change MaterialApp to GetMaterialApp
+    return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       initialRoute: '/',
       routes: {
