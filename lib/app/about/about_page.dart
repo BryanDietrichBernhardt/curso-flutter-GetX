@@ -11,9 +11,17 @@ class AboutPage extends StatelessWidget {
         title: const Text("About Page"),
       ),
       body: Center(
-        child: ElevatedButton(
-          child: const Text("Home"),
-          onPressed: () => Get.back(),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            ElevatedButton(
+              child: const Text("Home"),
+              onPressed: () => Get.back(),
+            ),
+            Text(
+                "Argumento vindo por rota de home:\n ${Get.arguments[0]}\n${Get.arguments[1]}",
+                textAlign: TextAlign.center),
+          ],
         ),
       ),
     );

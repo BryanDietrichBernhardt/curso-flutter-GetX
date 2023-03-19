@@ -14,7 +14,10 @@ class HomePage extends StatelessWidget {
       body: Center(
         child: ElevatedButton(
           child: const Text("About"),
-          onPressed: () => Get.to(const AboutPage()),
+          onPressed: () => Get.to(
+            const AboutPage(),
+            arguments: ['Argumento 1 por rota', 'Argumento 2 por rota'],
+          ),
         ),
       ),
     );
