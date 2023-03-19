@@ -14,7 +14,9 @@ class Controller extends GetxController {
 }
 
 class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+  final controller = Get.put(Controller());
+
+  HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -23,13 +25,13 @@ class HomePage extends StatelessWidget {
       builder: (_) {
         return Scaffold(
           appBar: AppBar(
-            title: Text(Get.find<Controller>().title),
+            title: Text(controller.title),
           ),
           body: Center(
             child: GestureDetector(
-              onTap: () => Get.find<Controller>().incrementValue(),
+              onTap: () => controller.incrementValue(),
               child: Text(
-                Get.find<Controller>().value.toString(),
+                controller.value.toString(),
                 style: const TextStyle(
                   fontSize: 30,
                 ),
